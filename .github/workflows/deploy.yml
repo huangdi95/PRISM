@@ -18,10 +18,10 @@ jobs:
 
     steps:
       - name: Verify token existence
-        run: echo "Token length: ${#PERSONAL_TOKEN}"
+        run: echo "Token length ${#PERSONAL_TOKEN}"
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
