@@ -17,6 +17,11 @@ jobs:
       USERNAME: ${{ github.repository_owner }}
 
     steps:
+      - name: Verify token existence
+        run: echo "Token length: ${#PERSONAL_TOKEN}"
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -40,3 +45,4 @@ jobs:
           external_repository: ${{ env.USERNAME }}/${{ env.USERNAME }}.github.io
           publish_branch: master
           commit_message: "Deploy from PRISM workflow"
+        
