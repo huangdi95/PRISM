@@ -12,38 +12,39 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-  
-  env:
-    USERNAME: ${{ github.repository_owner }}
-  
-  steps:
-    - name: Verify token existence
-      run: echo "Token length ${#PERSONAL_TOKEN}"
-      env:
-        PERSONAL_TOKEN: ${{ secrets.PAT }}
-  
-    - name: Checkout repository
-      uses: actions/checkout@v4
-  
-    - name: Setup Node.js (auto LTS)
-      uses: actions/setup-node@v4
-      with:
-        node-version: 'lts/*'
-        cache: npm
-  
-    - name: Install dependencies
-      run: npm install
-  
-    - name: Build site
-      run: npm run build
-  
-    - name: Deploy to root GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        # 关键修改：当推送到外部仓库时，使用 personal_token 而不是 github_token
-        personal_token: ${{ secrets.PAT }}
-        publish_dir: ./out
-        external_repository: ${{ env.USERNAME }}/${{ env.USERNAME }}.github.io
-        publish_branch: master
-        commit_message: "Deploy from PRISM workflow"
-          
+    
+    env:
+      USERNAME: ${{ github.repository_owner }}
+    
+    steps:
+      - name: Verify token existence
+        run: echo "Token length ${#PERSONAL_TOKEN}"
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PAT }}
+    
+      - name: Checkout repository
+        uses: actions/checkout@v4
+    
+      - name: Setup Node.js (auto LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: npm
+    
+      - name: Install dependencies
+        run: npm install
+    
+      - name: Build site
+        run: npm run build
+    
+      - name: Deploy to root GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # 关键修改：当推送到外部仓库时，使用 personal_token 而不是 github_token
+          personal_token: ${{ secrets.PAT }}
+          publish_dir: ./out
+          external_repository: ${{ env.USERNAME }}/${{ env.USERNAME }}.github.io
+          publish_branch: master
+          commit_message: "Deploy from PRISM workflow"
+
+            
