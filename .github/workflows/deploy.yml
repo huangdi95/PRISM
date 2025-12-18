@@ -3,7 +3,7 @@ name: Deploy PRISM to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 permissions:
@@ -13,14 +13,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      USERNAME: ${{ github.repository_owner }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (auto LTS)
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 'lts/*'
           cache: npm
 
       - name: Install dependencies
@@ -29,8 +32,7 @@ jobs:
       - name: Build site
         run: npm run build
 
-      # 部署到 username.github.io 仓库
-      - name: Deploy to GitHub Pages root domain
+      - name: Deploy to root GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PAT }}
