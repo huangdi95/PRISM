@@ -1,0 +1,15 @@
+[[news]]
+date = "2025-11"
+content = """4 papers were accepted to [AAAI 2026](https://aaai.org/conference/aaai/aaai-26/) <red>(2 oral)</red> 🎉"""
+
+[[news]]
+date = "2025-10"
+content = """2 papers were accepted to [IEEE TCAD](https://ieee-ceda.org/publications/tcad/) 🎉"""
+
+[[news]]
+date = "2025-09"
+content = """We have open-sourced our HDL generation foundation models [CodeV series](https://huggingface.co/collections/zhuyaoyu/codev-series) on [🤗Hugging Face](https://huggingface.co/), along with their [datasets](https://huggingface.co/collections/zhuyaoyu/codev-series)!!! """
+
+[[news]]
+date = "2025-09"
+content = """4 papers were accepted to [NeurIPS 2025](https://neurips.cc/Conferences/2025) <red>(1 spotlight)</red> 🎉"""

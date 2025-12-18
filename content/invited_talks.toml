@@ -1,0 +1,7 @@
+[[news]]
+date = "2025-09"
+content = """LLM for Hardware Code Generation and Optimization @ [CCF ADL](https://conf.ccf.org.cn/web/api/m1406937421697912832175548162096.action)"""
+
+[[news]]
+date = "2025-06"
+content = """QiMeng: Automated Hardware and Software Design for Processor Chip @ [AI4FACD Workshop](https://ai4facd.github.io/2025/) @ [ISCA 2025](https://iscaconf.org/isca2025/): """

@@ -1,0 +1,17 @@
+type = "card"
+title = "Teaching"
+# description = "Courses I have taught or assisted with."
+
+[[items]]
+title = "AI Computing Systems (智能计算系统)"
+subtitle = "1/6 Lecturers"
+date = "2026 Spring"
+content = """This course is designed to cultivate students' integrated understanding of the complete software-hardware technology stack of intelligent computing systems, including fundamental intelligent algorithms, intelligent computing programming frameworks, intelligent computing programming languages, and intelligent chip architectures. While mastering foundational theories, the course also helps students develop system-level capabilities and systems thinking. System-level capabilities can enhance graduates' competitiveness in the job market, whereas systems thinking is beneficial to students' research abilities. [Past Videos](https://www.bilibili.com/video/BV1WE411A7tv/)"""
+# tags = ["Undergraduate", "CS"]
+
+[[items]]
+title = "Introduction to Large Language Models (大模型研讨课)"
+subtitle = "1/11 Lecturers"
+date = "2024 Fall"
+content = """This course provides a systematic introduction to the latest advances and underlying principles of large-scale models, covering foundational topics such as model architectures, pre-training, post-training, fine-tuning, inference, and system software.
+[Past Videos](https://novel.ict.ac.cn/aics/llmytk/llm-kcjj/)"""
