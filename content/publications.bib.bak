@@ -1,3 +1,21 @@
+@inproceedings{smith2024constructive,
+  title = {A Constructive Proof of the Generalized Riemann Hypothesis for Function Fields over Finite Constants},
+  booktitle = {Proceedings of the 2024 International Congress of Mathematicians (ICM)},
+  author = {John Smith# and Jiale Liu#* and Alan Turing},
+  year = {2024},
+  month = jun,
+  pages = {205--218},
+  publisher = {EMS Press},
+  address = {Paris, France},
+  paperlink = {10.4171/ICM2024/102},
+  urldate = {2024-12-02},
+  isbn = {978-3-03719-202-8},
+  abstract = {We present a novel constructive proof for the Generalized Riemann Hypothesis (GRH) specifically within the context of function fields over finite constants. Unlike previous existential approaches, our method utilizes the spectral interpretation of the Frobenius automorphism acting on étale cohomology groups. We explicitly construct the L-functions associated with algebraic curves and demonstrate that their zeros lie strictly on the critical line Re(s) = 1/2. This work bridges the gap between classical analytic number theory and geometric invariant theory, offering new insights into the distribution of prime polynomials. The constructive nature of our proof allows for the algorithmic verification of L-function properties for curves of genus g > 100, which was previously computationally intractable.},
+  preview={example.png},
+  keywords={Number Theory, Riemann Hypothesis, Function Fields, Algebraic Geometry}
+}
+
+
 @inproceedings{peng2024hypothesis,
   title={Hypothesis, verification, and induction: grounding large language models with self-driven skill learning},
   author={Peng, Shaohui and Hu, Xing and Yi, Qi and Zhang, Rui and Guo, Jiaming and Huang, Di and Tian, Zikang and Chen, Ruizhi and Du, Zidong and Guo, Qi and others},
@@ -197,6 +215,7 @@
   model={https://huggingface.co/collections/zhuyaoyu/codev-series},
   publisher={IEEE}
 }
+  % description={The first model of the CodeV series, supporting Verilog and Chisel generation and fill-in-middle. Can be applied to VSCode and VIM as a code completion plugin.},
 
 @article{jin2025realbench,
   title={Realbench: Benchmarking verilog generation models with real-world ip designs},
@@ -229,6 +248,7 @@
   preview={codev-r1.png},
   year={2025}
 }
+  % description={Model specialized in Verilog generation to incorporate reasoning capabilities, showing test-time scaling.},
 
 @article{fang2025qimeng,
   title={QiMeng-NeuComBack: Self-Evolving Translation from IR to Assembly Code},
