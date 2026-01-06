@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Publication } from '@/types/publication';
-// import { renderHighlightedText } from '../publications/PublicationsList'; 
 import { renderHighlightedText } from "../publications/PublicationsList";
 
 interface SelectedPublicationsProps {
@@ -21,6 +20,7 @@ export default function SelectedPublications({
     const sortedPublications = [...publications].sort((a, b) => {
         return b.year - a.year;
     });
+
     return (
         <motion.section
             initial={{ opacity: 0, y: 20 }}
@@ -47,11 +47,16 @@ export default function SelectedPublications({
                         transition={{ duration: 0.4, delay: 0.1 * index }}
                         className="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg shadow-sm border border-neutral-200 dark:border-[rgba(148,163,184,0.24)] hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
                     >
-                        {/* --- NEW: preview + text layout --- */}
+                        {/* 
+                           修改说明：
+                           1. 父容器保持 flex-row，默认 items-stretch，这保证了左右两栏高度一致。
+                           2. 图片容器移除了 md:aspect-[4/3]，改为 md:aspect-auto md:h-full。
+                              这使得在桌面端图片高度会跟随右侧文字内容的高度自动拉伸。
+                        */}
                         <div className="flex flex-col md:flex-row gap-6">
                             {pub.preview && (
                                 <div className="w-full md:w-48 flex-shrink-0">
-                                    <div className="aspect-video md:aspect-[4/3] relative rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-700">
+                                    <div className="relative rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-700 w-full aspect-video md:aspect-auto md:h-full">
                                         <Image
                                             src={`/papers/${pub.preview}`}
                                             alt={pub.title}
@@ -64,7 +69,7 @@ export default function SelectedPublications({
                             )}
 
                             {/* text section */}
-                            <div className="flex-1">
+                            <div className="flex-1 flex flex-col">
                                 <h3 className="font-semibold text-primary mb-2 leading-tight">
                                     {pub.title}
                                 </h3>
@@ -91,10 +96,64 @@ export default function SelectedPublications({
                                 </p>
 
                                 {pub.description && (
-                                    <p className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-2">
+                                    <p className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-2 mb-3">
                                         {pub.description}
                                     </p>
                                 )}
+
+                                {/* Links / Tags Section */}
+                                <div className="flex flex-wrap gap-2 mt-auto pt-2">
+                                    {pub.projectpage && (
+                                        <a
+                                            href={pub.projectpage}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                        >
+                                            Project Page
+                                        </a>
+                                    )}
+                                    {pub.paperlink && (
+                                        <a
+                                            href={pub.paperlink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                        >
+                                            Paper
+                                        </a>
+                                    )}
+                                    {pub.code && (
+                                        <a
+                                            href={pub.code}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                        >
+                                            Code
+                                        </a>
+                                    )}
+                                    {pub.data && (
+                                        <a
+                                            href={pub.data}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                        >
+                                            Data
+                                        </a>
+                                    )}
+                                    {pub.model && (
+                                        <a
+                                            href={pub.model}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                        >
+                                            Model
+                                        </a>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </motion.div>
